@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Sistema de Gestion de Mensajes Electronicos</title>
+        <title>Mensajes Enviados</title>
     </head>
     <body>
         <?php
@@ -23,38 +23,34 @@
                 <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <aside>
-            <p>Aqui va la foto</p>
-            <p>Aqui va el nombre del usuario</p>
-        </aside>
         <section>
-            <h3>Mensajes Recibidos</h3>
+            <h3>Mensajes Enviados</h3>
             <form>
                 <table border="1px">
                     <tr>
-                        <th>De</th>
+                        <th>Destino</th>
                         <th>Asunto</th>
                         <th>Mensaje</th>
-                        <th>Fecha y hora</th>
+                        <th>Fecha y hora de envio</th>
                     </tr>
                     <?php
                         include '../../../config/conexionBD.php';
 
 
-                        $sql = "SELECT * FROM correo WHERE cor_usu_destino='$codigo'";
+                        $sql = "SELECT * FROM correo WHERE cor_usu_remite='$codigo'";
                         $result = $conn->query($sql);
                         
 
                         if ($result->num_rows > 0){
                             while($row = $result->fetch_assoc()){
                                     echo "<tr>";
-                                    echo "<td>".buscarCorreo($row["cor_usu_remite"])."</td>";
+                                    echo "<td>".buscarCorreo($row["cor_usu_destino"])."</td>";
                                     echo "<td>" .$row["cor_asunto"]."</td>";
                                     echo "<td>" .$row["cor_mensaje"]."</td>";
                                     echo "<td>" .$row["cor_fecha_envio"]."</td>";
                             }
                         }else{
-                            echo "<td colspan=4>No tiene mensajes</td>";
+                            echo "<td colspan=4>No tiene mensajes enviados</td>ERROR";
                         }
 
                         function buscarCorreo($codigoCorreo){
