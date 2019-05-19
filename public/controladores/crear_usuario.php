@@ -3,13 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Crear Nuevo Usuario</title>
-        <style type="text/css" rel="stylesheet">
-            .error{
-                color: red;
-            }
-        </style>
+        <link type="text/css" rel="stylesheet" href="../../style.css">
     </head>
     <body>
+        <form class="box">
         <?php
             //Incluir conexion a la base de datos
             include '../../config/conexionBD.php';
@@ -23,7 +20,7 @@
             $fechaNacimiento = isset($_POST["fechaNacimiento"]) ? trim($_POST["fechaNacimiento"]) : null;
             $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : null;
 
-            $sql = "INSERT INTO usuario VALUES (0, '$cedula', '$nombres', '$apellidos', '$direccion', '$telefono', '$correo', MD5('$contrasena'), '$fechaNacimiento', 'N', null, null, 2)";
+            $sql = "INSERT INTO usuario VALUES (0, '$cedula', '$nombres', '$apellidos', '$direccion', '$telefono', '$correo', MD5('$contrasena'), '$fechaNacimiento', 'N', null, null, 2, null)";
 
             if ($conn->query($sql)==TRUE){
                 echo"<p>Se han creado los datos personales correctamente!!!</p>";
@@ -39,5 +36,6 @@
             $conn->close();
             echo"<a href='../vista/crear_usuario.html'>Regresar</a>";
         ?>
+    </form>
     </body>
 </html>

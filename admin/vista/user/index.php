@@ -9,9 +9,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion de Mensajes Electronicos</title>
+        <script type="text/javascript" src="../../../ajax.js"></script>
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <?php
+            include '../../../config/conexionBD.php';
             $codigo = $_GET['codigo'];
         ?>
         <nav>
@@ -23,14 +26,24 @@
                 <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <aside>
-            <p>Aqui va la foto</p>
-            <p>Aqui va el nombre del usuario</p>
-        </aside>
-        <section>
+        <section class="info">
+            <?php
+                $sqli ="SELECT usu_imagen,usu_nombres,usu_apellidos FROM usuario WHERE usu_codigo='$codigo'";
+                $stm = $conn->query($sqli);
+                while ($datos = $stm->fetch_object()){
+            ?>
+                <p><?php echo $datos->usu_nombres." ".$datos->usu_apellidos ?></p>
+                <img src="data:image/jpg; base64,<?php echo base64_encode($datos->usu_imagen) ?>">
+            <?php   
+                }
+            ?>
+        </section>
+        <section class="mensajes">
             <h3>Mensajes Recibidos</h3>
-            <form>
-                <table border="1px">
+            <form id="form_mensajes">
+                <input type="text" id="correoBuscar" name="correoBuscar" value="" placeholder="Buscar mensaje electronico...">
+                <input type="submit" id="buscar" name="buscar" value="Buscar" onclick="buscarCorreo()">
+                <table id="buzon">
                     <tr>
                         <th>De</th>
                         <th>Asunto</th>
@@ -41,7 +54,7 @@
                         include '../../../config/conexionBD.php';
 
 
-                        $sql = "SELECT * FROM correo WHERE cor_usu_destino='$codigo'";
+                        $sql = "SELECT * FROM correo WHERE cor_usu_destino='$codigo' ORDER BY cor_fecha_envio";
                         $result = $conn->query($sql);
                         
 

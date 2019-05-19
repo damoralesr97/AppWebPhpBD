@@ -2,35 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>Crear Usuario</title>
+        <link rel="stylesheet" rel="stylesheet" href="../../style.css">
     </head>
     <body>
-        <form id="formulario01" method="POST" action="../controladores/crear_usuario.php">
-            <label for="cedula">Cedula (*)</label>
-            <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el numero de cedula..." required>
+        <form class="box_registro" method="POST" action="../controladores/crear_usuario.php">
+            <h1>Registrate</h1>
+            <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el numero de cedula..." required class="registro">
             <br>
-            <label for="nombres">Nombres (*)</label>
-            <input type="text" id="nombres" name="nombres" value="" placeholder="Ingrese sus dos nombres..." required>
+            
+            <input type="text" id="nombres" name="nombres" value="" placeholder="Ingrese sus dos nombres..." required class="registro">
             <br>
-            <label for="apellidos">Apellidos (*)</label>
-            <input type="text" id="apellidos" name="apellidos" value="" placeholder="Ingrese sus dos apellidos..." required>
+            
+            <input type="text" id="apellidos" name="apellidos" value="" placeholder="Ingrese sus dos apellidos..." required class="registro">
             <br>
-            <label for="direccion">Direccion (*)</label>
-            <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese sus direccion..." required>
+            
+            <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese sus direccion..." required class="registro">
             <br>
-            <label for="telefono">Telefono (*)</label>
-            <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese su numero telefonico..." required>
+            
+            <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese su numero telefonico..." required class="registro">
             <br>
-            <label for="fecha">Fecha Nacimiento (*)</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="" placeholder="Ingrese su fecha de nacimiento..." required>
+            
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="" placeholder="Ingrese su fecha de nacimiento..." required class="registro">
             <br>
-            <label for="correo">Correo electronico (*)</label>
-            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese su correo electronico..." required>
+            
+            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese su correo electronico..." required class="registro">
             <br>
-            <label for="contrasena">Contraseña (*)</label>
-            <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su Contraseña..." required>
+            
+            <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su Contraseña..." required class="registro">
             <br>
-            <input type="submit" id="crear" name="crear" value="Aceptar">
-            <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
+            <input type="submit" id="crear" name="crear" value="Aceptar" class="boton">
+            <input type="reset" id="cancelar" name="cancelar" value="Cancelar" class="boton" onclick="location.href='login.html'">
         </form>
     </body>
 </html>

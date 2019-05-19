@@ -9,6 +9,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Mensajes Enviados</title>
+        
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <?php
@@ -23,10 +25,12 @@
                 <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <section>
+        <section class="mensajes">
             <h3>Mensajes Enviados</h3>
-            <form>
-                <table border="1px">
+            <form id="form_mensajes">
+                <input type="text" id="correoBuscar" name="correoBuscar" value="" placeholder="Buscar mensaje electronico...">
+                <input type="submit" id="buscar" name="buscar" value="Buscar" onclick="buscarCorreo()">
+                <table  id="buzon">
                     <tr>
                         <th>Destino</th>
                         <th>Asunto</th>
@@ -37,7 +41,7 @@
                         include '../../../config/conexionBD.php';
 
 
-                        $sql = "SELECT * FROM correo WHERE cor_usu_remite='$codigo'";
+                        $sql = "SELECT * FROM correo WHERE cor_usu_remite='$codigo' ORDER BY cor_fecha_envio";
                         $result = $conn->query($sql);
                         
 

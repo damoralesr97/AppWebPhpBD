@@ -9,6 +9,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Nuevo Mensaje</title>
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <?php $codigo = $_GET['codigo']; ?>
@@ -25,7 +26,7 @@
             <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>">
 
             <label for="remite">From:</label>
-            <input type="text" id="remite" name="remite" value="Aqui va el correo del que manda el mensaje">
+            <input type="text" id="remite" name="remite" value="<?php echo buscarCorreo($codigo) ?>" disabled>
             <br>
 
             <label for="destino">To:</label>
@@ -43,8 +44,23 @@
             <input type="submit" id="enviar" name="enviar" value="Enviar">
             <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
         </form>
-
-        
-        <a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a>
+        <footer>
+            <p>Copyright</p>
+            <p>David Andres Morales Rivera</p>
+            <p>2019</p>
+        </footer>
     </body>
 </html>
+<?php
+    function buscarCorreo($codigoCorreo){
+        include '../../../config/conexionBD.php';
+        $sql1 = "SELECT usu_correo FROM usuario WHERE usu_codigo='$codigoCorreo'";
+        $result = $conn->query($sql1);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $direccionCorreo=$row["usu_correo"];
+            }
+        }
+        return $direccionCorreo;
+    }
+?>

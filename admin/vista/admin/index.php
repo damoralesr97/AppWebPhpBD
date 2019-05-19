@@ -39,7 +39,7 @@
                         include '../../../config/conexionBD.php';
 
 
-                        $sql = "SELECT * FROM correo";
+                        $sql = "SELECT * FROM correo ORDER BY cor_fecha_envio";
                         $result = $conn->query($sql);
                         
 
