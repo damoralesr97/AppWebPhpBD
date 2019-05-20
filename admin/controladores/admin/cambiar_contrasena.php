@@ -8,7 +8,7 @@
         <?php
             //Incluir conexion a la BD
             include "../../../config/conexionBD.php";
-
+            $codigo_admin = $_GET["codigo_admin"];
             $codigo = $_POST["codigo"];
             $contrasena1 = isset($_POST["contrasena1"]) ? trim($_POST["contrasena1"]) : null;
             $contrasena2 = isset($_POST["contrasena2"]) ? trim($_POST["contrasena2"]) : null;
@@ -30,7 +30,7 @@
             }else{
                 echo "<p>La contrasena actual no coincide con nuestros registros!!!</p>";
             }
-            echo "<a href='../../vista/admin/index.php'>Regresar</a>";
+            echo "<a href='../../vista/admin/usuarios.php?codigo_admin=".$codigo_admin."'>Regresar</a>";
             $conn->close();
         ?>
     </body>

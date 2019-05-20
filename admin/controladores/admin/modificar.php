@@ -8,6 +8,7 @@
         <?php
             //Incluir conexion a la base de datos
             include '../../../config/conexionBD.php';
+            $codigo_admin = $_GET["codigo_admin"];
 
             $codigo = $_POST["codigo"];
             $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
@@ -28,7 +29,7 @@
             }else{
                 echo "Error: ".$sql."<br>".mysqli_error($conn)."<br>";
             }
-            echo "<a href='../../vista/admin/index.php'>Regresar</a>";
+            echo "<a href='../../vista/admin/usuarios.php?codigo_admin=".$codigo_admin."'>Regresar</a>";
 
             $conn->close();
         ?>

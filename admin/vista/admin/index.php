@@ -7,33 +7,44 @@
 <!DOCTYPE html>
 <html>
     <?php
+        include '../../../config/conexionBD.php';
         $codigo_admin = $_GET['codigo_admin'];
     ?>
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion de Mensajes Electronicos</title>
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <nav>
             <ul>
                 <li><a href="index.php?codigo_admin=<?php echo $codigo_admin ?>">Inicio</a></li>
                 <li><a href="usuarios.php?codigo_admin=<?php echo $codigo_admin ?>">Usuarios</a></li>
+                <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <aside>
-            <p>Aqui va la foto</p>
-            <p>Aqui va el nombre del usuario</p>
-        </aside>
-        <section>
+        <section class="info2">
+            <?php
+                $sqli ="SELECT usu_imagen,usu_nombres,usu_apellidos FROM usuario WHERE usu_codigo='$codigo_admin'";
+                $stm = $conn->query($sqli);
+                while ($datos = $stm->fetch_object()){
+            ?>
+                <p><?php echo $datos->usu_nombres." ".$datos->usu_apellidos ?></p>
+                <img src="data:image/jpg; base64,<?php echo base64_encode($datos->usu_imagen) ?>">
+            <?php   
+                }
+            ?>
+        </section>
+        <section class="mensajes">
             <h3>Mensajes Electronicos</h3>
-            <form>
-                <table border="1px">
+            <form class="form_mensajes">
+                <table id="buzon">
                     <tr>
                         <th>Fecha</th>
                         <th>Remite</th>
                         <th>Destinatario</th>
                         <th>Asunto</th>
-                        <th>Eliminar</th>
+                        <th>Accion</th>
                     </tr>
                     <?php
                         include '../../../config/conexionBD.php';
@@ -51,7 +62,7 @@
                                     echo "<td>".buscarCorreo($row["cor_usu_remite"])."</td>";
                                     echo "<td>".buscarCorreo($row["cor_usu_destino"])."</td>";
                                     echo "<td>" .$row["cor_asunto"]."</td>";
-                                    echo "<td><a href='eliminar_mensaje.php?codigo_mensaje=".$row['cor_codigo']."&codigo_admin=".$codigo_admin."'>Eliminar</a></td>";
+                                    echo "<td class='accion'><a href='eliminar_mensaje.php?codigo_mensaje=".$row['cor_codigo']."&codigo_admin=".$codigo_admin."'>Eliminar</a></td>";
                                 }
                             }
                         }else{

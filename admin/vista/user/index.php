@@ -9,7 +9,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion de Mensajes Electronicos</title>
-        <script type="text/javascript" src="../../../ajax.js"></script>
+        <script type="text/javascript" src="ajax.js"></script>
         <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
@@ -40,9 +40,8 @@
         </section>
         <section class="mensajes">
             <h3>Mensajes Recibidos</h3>
-            <form id="form_mensajes">
-                <input type="text" id="correoBuscar" name="correoBuscar" value="" placeholder="Buscar mensaje electronico...">
-                <input type="submit" id="buscar" name="buscar" value="Buscar" onclick="buscarCorreo()">
+            <form id="form_mensajes"><input type="text" id="correoBuscar" name="correoBuscar" value="" onkeyup="buscarC(<?php echo $codigo ?>)" placeholder="Buscar por correo...">
+                <div id="informacion">
                 <table id="buzon">
                     <tr>
                         <th>De</th>
@@ -87,6 +86,7 @@
                         $conn->close();
                     ?>
                 </table>
+                </div>
             </form>
         </section>
         <footer>

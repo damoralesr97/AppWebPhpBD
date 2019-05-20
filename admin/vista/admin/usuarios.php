@@ -9,18 +9,33 @@
     <head>
         <meta charset="UTF-8">
         <title>Gestion de usuarios</title>
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <?php
+            include '../../../config/conexionBD.php';
             $codigo_admin = $_GET["codigo_admin"];
         ?>
-    <nav>
+        <nav>
             <ul>
                 <li><a href="index.php?codigo_admin=<?php echo $codigo_admin ?>">Inicio</a></li>
                 <li><a href="usuarios.php?codigo_admin=<?php echo $codigo_admin ?>">Usuarios</a></li>
+                <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <table border="1px">
+        <section class="info2">
+            <?php
+                $sqli ="SELECT usu_imagen,usu_nombres,usu_apellidos FROM usuario WHERE usu_codigo='$codigo_admin'";
+                $stm = $conn->query($sqli);
+                while ($datos = $stm->fetch_object()){
+            ?>
+                <p><?php echo $datos->usu_nombres." ".$datos->usu_apellidos ?></p>
+                <img src="data:image/jpg; base64,<?php echo base64_encode($datos->usu_imagen) ?>">
+            <?php   
+                }
+            ?>
+        </section>
+        <table id="buzon">
             <tr>
                 <th>Cedula</th>
                 <th>Nombres</th>
@@ -29,15 +44,12 @@
                 <th>Telefono</th>
                 <th>Correo</th>
                 <th>Fecha Nacimiento</th>
-                <th>Eliminar</th>
-                <th>Modificar</th>
-                <th>Cambiar contrasena</th>
+                <th colspan="3">Accion</th>
             </tr>
 
             <?php
-                include '../../../config/conexionBD.php';
 
-                $sql = "SELECT * FROM usuario";
+                $sql = "SELECT * FROM usuario WHERE rol_usu_codigo='2'";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0){
@@ -51,9 +63,9 @@
                             echo "<td>" .$row["usu_telefono"]."</td>";
                             echo "<td>" .$row["usu_correo"]."</td>";
                             echo "<td>" .$row["usu_fecha_nacimiento"]."</td>";
-                            echo "<td><a href='eliminar.php?codigo=".$row['usu_codigo']."'>Eliminar</a></td>";
-                            echo "<td><a href='modificar.php?codigo=".$row['usu_codigo']."'>Modificar</a></td>";
-                            echo "<td><a href='cambiar_contrasena.php?codigo=".$row['usu_codigo']."'>Cambiar contrasena</a></td>";
+                            echo "<td class='accion'><a href='eliminar.php?codigo=".$row['usu_codigo']."&codigo_admin=".$codigo_admin."'>Eliminar</a></td>";
+                            echo "<td class='accion'><a href='modificar.php?codigo=".$row['usu_codigo']."&codigo_admin=".$codigo_admin."'>Modificar</a></td>";
+                            echo "<td class='accion'><a href='cambiar_contrasena.php?codigo=".$row['usu_codigo']."&codigo_admin=".$codigo_admin."'>Cambiar contrasena</a></td>";
                         }
                     }
                 }else{
@@ -64,6 +76,10 @@
                 $conn->close();
             ?>
         </table>
-        <a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a>
+        <footer>
+            <p>Copyright</p>
+            <p>David Andres Morales Rivera</p>
+            <p>2019</p>
+        </footer>
     </body>
 </html>

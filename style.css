@@ -356,3 +356,22 @@ nav li:hover{
     color: white;
     transition: 0.25s;
 }
+
+.info2{
+    margin-left: auto;
+    margin-right: 20px;
+    width: 35%;
+    float: right;
+    text-align: center;
+}
+
+.info2 img{
+    width: 150px;
+    border: 2px solid #2ecc71;
+    border-radius: 24px;
+}
+
+.info2 p{
+    color: white;
+    font-weight: bold;
+}

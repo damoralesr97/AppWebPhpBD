@@ -9,6 +9,7 @@
     <head>
         <meta charset="UTF-*">
         <title>Eliminar Mensaje Electronico</title>
+        <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
         <?php
@@ -22,25 +23,25 @@
             if ($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
         ?>
-                    <form id="formulario01" method="POST" action="../../controladores/admin/eliminar_mensaje.php?codigo_admin=<?php echo $codigo_admin ?>&codigo_mensaje=<?php echo $row["cor_codigo"]; ?>">
+                    <form class="box" method="POST" action="../../controladores/admin/eliminar_mensaje.php?codigo_admin=<?php echo $codigo_admin ?>&codigo_mensaje=<?php echo $row["cor_codigo"]; ?>">
                         
 
-                        <label for="fecha_envio">Fecha</label>
-                        <input type="text" id="fecha_envio" name="fecha_envio" value="<?php echo $row["cor_fecha_envio"];?>" disabled>
+                        <label class="elimina" for="fecha_envio">Fecha</label>
+                        <input  type="text" id="fecha_envio" name="fecha_envio" value="<?php echo $row["cor_fecha_envio"];?>" disabled>
                         <br>
-                        <label for="remitente">Remitente</label>
+                        <label class="elimina" for="remitente">Remitente</label>
                         <input type="text" id="remitente" name="remitente" value="<?php echo buscarCorreo($row["cor_usu_remite"]);?>" disabled>
                         <input type="hidden" id="remitente_c" name="remitente_c" value="<?php echo $row["cor_usu_remite"];?>" disabled>
                         <br>
-                        <label for="destinatario">Destinatario</label>
+                        <label class="elimina" for="destinatario">Destinatario</label>
                         <input type="text" id="destinatario" name="destinatario" value="<?php echo buscarCorreo($row["cor_usu_destino"]);?>" disabled>
                         <input type="hidden" id="destinatario_c" name="destinatario_c" value="<?php echo $row["cor_usu_destino"];?>" disabled>
                         <br>
-                        <label for="asunto">Asunto</label>
+                        <label class="elimina" for="asunto">Asunto</label>
                         <input type="text" id="asunto" name="asunto" value="<?php echo $row["cor_asunto"];?>" disabled>
                         <br>
-                        <input type="submit" id="eliminar" name="eliminar" value="Eliminar">
-                        <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
+                        <input class="boton" type="submit" id="eliminar" name="eliminar" value="Eliminar">
+                        <input type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='index.php?codigo_admin=<?php echo $codigo_admin ?>'" class="boton">
                     </form>
         <?php
                 }

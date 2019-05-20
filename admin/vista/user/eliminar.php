@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-*">
-        <title>Eliminar datos de persona</title>
+        <title>Eliminar Persona</title>
         <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>

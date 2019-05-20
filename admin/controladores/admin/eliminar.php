@@ -9,7 +9,7 @@
 
             //Incluir conexion a la BD
             include '../../../config/conexionBD.php';
-
+            $codigo_admin = $_GET["codigo_admin"];
             $codigo = $_POST["codigo"];
 
             date_default_timezone_set("America/Guayaquil");
@@ -21,7 +21,7 @@
             }else{
                 echo "<p>Error".$sql."<br>".mysqli_error($conn)."</p>";
             }
-            echo "<a href='../../vista/admin/index.php'>Regresar</a>";
+            echo "<a href='../../vista/admin/usuarios.php?codigo_admin=".$codigo_admin."'>Regresar</a>";
 
             $conn->close();
         ?>
