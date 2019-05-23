@@ -1,7 +1,7 @@
 ## Con base al archivo Práctica 04 – Creación de una aplicación web usando PHP y Base de Datos, se pide realizar los siguientes ajustes: 
-	-a) Agregar roles a la tabla usuario. Un usuario puede tener un rol de “admin” o “user” 
-	-b) Los usuarios con rol de “admin” pueden únicamente: modificar, eliminar y cambiar la contraseña de cualquier usuario de la base de datos. 
-	-c) Los usuarios con rol de “user” pueden modificar, eliminar y cambiar la contraseña de su usuario. 
+- Agregar roles a la tabla usuario. Un usuario puede tener un rol de “admin” o “user” 
+- Los usuarios con rol de “admin” pueden únicamente: modificar, eliminar y cambiar la contraseña de cualquier usuario de la base de datos. 
+- Los usuarios con rol de “user” pueden modificar, eliminar y cambiar la contraseña de su usuario. 
 
 ## Para este punto se procedió a crear una tabla para controlar los roles, y una clave foránea en la tabla users de esta manera se puede gestionar si el usuario de la BD es admin o user.
 ![Captura1](capturas/captura1.JPG)
