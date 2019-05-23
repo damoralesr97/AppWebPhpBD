@@ -10,10 +10,9 @@
             include "../../../config/conexionBD.php";
             $codigo_admin = $_GET["codigo_admin"];
             $codigo = $_POST["codigo"];
-            $contrasena1 = isset($_POST["contrasena1"]) ? trim($_POST["contrasena1"]) : null;
             $contrasena2 = isset($_POST["contrasena2"]) ? trim($_POST["contrasena2"]) : null;
 
-            $sqlContrasena1 = "SELECT * FROM usuario WHERE usu_codigo=$codigo and usu_password=MD5('$contrasena1')";
+            $sqlContrasena1 = "SELECT * FROM usuario WHERE usu_codigo=$codigo";
             $result = $conn->query($sqlContrasena1);
 
             if ($result->num_rows > 0){

@@ -19,10 +19,6 @@
         <form class="box" method="POST" action="../../controladores/admin/cambiar_contrasena.php?codigo_admin=<?php echo $codigo_admin ?>">
             <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>">
 
-            <label class="contrasena" for="contrasenaActual">Contrasena Actual (*)</label>
-            <input type="password" id="contrasena1" name="contrasena1" value="" required placeholder="Ingrese su contrasena actual...">
-            <br>
-
             <label class="contrasena" for="contrasenaNueva">Contrasena Nueva (*)</label>
             <input type="password" id="contrasena2" name="contrasena2" value="" required placeholder="Ingrese su contrasena nueva...">
             <br>

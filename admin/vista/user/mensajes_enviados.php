@@ -9,7 +9,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Mensajes Enviados</title>
-        
+        <script type="text/javascript" src="ajax2.js"></script>
         <link rel="stylesheet" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
@@ -28,12 +28,12 @@
         <section class="mensajes">
             <h3>Mensajes Enviados</h3>
             <form id="form_mensajes">
-                <input type="text" id="correoBuscar" name="correoBuscar" value="" placeholder="Buscar mensaje electronico...">
-                <input type="submit" id="buscar" name="buscar" value="Buscar" onclick="buscarCorreo()">
+            <form id="form_mensajes"><input type="text" id="correoBuscar" name="correoBuscar" value="" onkeyup="buscarC2(<?php echo $codigo ?>)" placeholder="Buscar por correo...">
+                <div id="informacion">
                 <table  id="buzon">
                     <tr>
                         <th>Destino</th>
-                        <th>Asunto</th>
+                        <th>Destino</th>
                         <th>Mensaje</th>
                         <th>Fecha y hora de envio</th>
                     </tr>
@@ -74,6 +74,7 @@
                         $conn->close();
                     ?>
                 </table>
+                </div>
             </form>
         </section>
         <footer>
