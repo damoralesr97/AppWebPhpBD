@@ -8,36 +8,36 @@
 ## Luego, con base a estos ajustes realizados, se pide desarrollar una aplicación web usando PHP y Base de Datos que permita gestionar (enviar y recibir) mensajes electrónicos entre usuarios de la aplicación. De los mensajes electrónicos se desea conocer la fecha y hora, remitente, destinatario, asunto y mensaje. Para lo cuál, se pide como mínimo los siguientes requerimientos: 
 ![Captura2](capturas/captura2.JPG)
 ## Usuario con rol de user: 
-	-d) Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos recibidos, ordenados por los más recientes. 
-	 ![Captura3](capturas/captura3.JPG)
-	-e) Visualizar el listado de todos los mensajes electrónicos enviados, ordenados por los más recientes. 
-	 ![Captura4](capturas/captura4.JPG)
-	-f) Enviar mensajes electrónicos a otros usuarios de la aplicación web. 
-	 ![Captura5](capturas/captura5.JPG)
-	-g) Buscar todos los mensajes electrónicos recibidos. La búsqueda se realizará por el correo del usuario remitente y se deberá aplicar Ajax para la búsqueda. 
-	 ![Captura6](capturas/captura6.JPG)
-	-h) Buscar todos los mensajes electrónicos enviados. La búsqueda se realizará por el correo del usuario destinatario y se deberá aplicar Ajax para la búsqueda. 
-	 ![Captura7](capturas/captura7.JPG)
-	-i) Modificar los datos del usuario. 
-	 ![Captura8](capturas/captura8.JPG)
-	-j) Cambiar la contraseña del usuario. 
-	 ![Captura9](capturas/captura9.JPG)
-	-k) Agregar un avatar (fotografía) a la cuenta del usuario. 
-	 ![Captura10](capturas/captura10.JPG)
+- Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos recibidos, ordenados por los más recientes. 
+![Captura3](capturas/captura3.JPG)
+- Visualizar el listado de todos los mensajes electrónicos enviados, ordenados por los más recientes. 
+![Captura4](capturas/captura4.JPG)
+- Enviar mensajes electrónicos a otros usuarios de la aplicación web. 
+![Captura5](capturas/captura5.JPG)
+- Buscar todos los mensajes electrónicos recibidos. La búsqueda se realizará por el correo del usuario remitente y se deberá aplicar Ajax para la búsqueda. 
+![Captura6](capturas/captura6.JPG)
+- Buscar todos los mensajes electrónicos enviados. La búsqueda se realizará por el correo del usuario destinatario y se deberá aplicar Ajax para la búsqueda. 
+![Captura7](capturas/captura7.JPG)
+- Modificar los datos del usuario. 
+![Captura8](capturas/captura8.JPG)
+- Cambiar la contraseña del usuario. 
+![Captura9](capturas/captura9.JPG)
+- Agregar un avatar (fotografía) a la cuenta del usuario. 
+![Captura10](capturas/captura10.JPG)
 
 ## Usuario con rol de admin: 
-	-l) No puede recibir ni enviar mensajes electrónicos. 
-	-m) Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos, ordenados por los más recientes. 
-	 ![Captura11](capturas/captura11.JPG)
-	-n) Eliminar los mensajes electrónicos de los usuarios con rol “user”. 
-	 ![Captura12](capturas/captura12.JPG)
-	-o) Eliminar, modificar y cambiar contraseña de los usuarios con rol “user”. 
-	 ![Captura13](capturas/captura13.JPG)
+- No puede recibir ni enviar mensajes electrónicos. 
+- Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos, ordenados por los más recientes. 
+![Captura11](capturas/captura11.JPG)
+- Eliminar los mensajes electrónicos de los usuarios con rol “user”. 
+![Captura12](capturas/captura12.JPG)
+- Eliminar, modificar y cambiar contraseña de los usuarios con rol “user”. 
+![Captura13](capturas/captura13.JPG)
 
 ## Por último, se debe aplicar parámetros de seguridad a través del uso de sesiones. Para lo cuál, se debe tener en cuenta: 
-	-p) Un usuario “anónimo”, es decir, un usuario que no ha iniciado sesión puede acceder únicamente a los archivos de la carpeta pública. 
-	-q) Un usuario con rol de “admin” puede acceder únicamente a los archivos de la carpeta admin → vista → admin y admin → controladores → admin 
-	-r) Un usuario con rol de “user” puede acceder únicamente a los archivos de la carpeta admin → vista → user y admin → controladores → user 
+- Un usuario “anónimo”, es decir, un usuario que no ha iniciado sesión puede acceder únicamente a los archivos de la carpeta pública. 
+- Un usuario con rol de “admin” puede acceder únicamente a los archivos de la carpeta admin → vista → admin y admin → controladores → admin 
+- Un usuario con rol de “user” puede acceder únicamente a los archivos de la carpeta admin → vista → user y admin → controladores → user 
 
 ## Diagrama E-R
 ![Captura14](capturas/captura14.JPG)
@@ -88,6 +88,11 @@ CREATE TABLE `correo` (
 PRIMARY KEY (`cor_codigo`),
 FOREIGN KEY (`cor_usu_remite`) REFERENCES usuario(usu_codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+## Conclusiones
+- Es muy importante saber como y cuando usar PHP, ya que nos ayuda a gestionar, en este caso, la base de datos con la información que queremos mostrar o guardar de nuestro sitio web.
+- Es muy recomendable planificar bien la estructura de nuestra base de datos, ya que debemos hacer que esta tenga consistencia y que tenga un histórico de todas las acciones que los admins o users han realizado.
+- Ajax es una técnica de Javascript muy importante para las paginas web hoy en día, ya que ayuda al usuario a filtrar la información y esto le ayuda a tener un mejor entendimiento de lo que necesita buscar puntualmente.
 
 ## GitHub
 ## Usuario: 
