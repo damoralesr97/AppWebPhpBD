@@ -1,50 +1,51 @@
-# Con base al archivo Práctica 04 – Creación de una aplicación web usando PHP y Base de Datos, se pide realizar los siguientes ajustes: 
+## Con base al archivo Práctica 04 – Creación de una aplicación web usando PHP y Base de Datos, se pide realizar los siguientes ajustes: 
 	-a) Agregar roles a la tabla usuario. Un usuario puede tener un rol de “admin” o “user” 
 	-b) Los usuarios con rol de “admin” pueden únicamente: modificar, eliminar y cambiar la contraseña de cualquier usuario de la base de datos. 
 	-c) Los usuarios con rol de “user” pueden modificar, eliminar y cambiar la contraseña de su usuario. 
 
-# Para este punto se procedió a crear una tabla para controlar los roles, y una clave foránea en la tabla users de esta manera se puede gestionar si el usuario de la BD es admin o user.
+## Para este punto se procedió a crear una tabla para controlar los roles, y una clave foránea en la tabla users de esta manera se puede gestionar si el usuario de la BD es admin o user.
 ![Captura1](capturas/captura1.JPG)
-# Luego, con base a estos ajustes realizados, se pide desarrollar una aplicación web usando PHP y Base de Datos que permita gestionar (enviar y recibir) mensajes electrónicos entre usuarios de la aplicación. De los mensajes electrónicos se desea conocer la fecha y hora, remitente, destinatario, asunto y mensaje. Para lo cuál, se pide como mínimo los siguientes requerimientos: 
+## Luego, con base a estos ajustes realizados, se pide desarrollar una aplicación web usando PHP y Base de Datos que permita gestionar (enviar y recibir) mensajes electrónicos entre usuarios de la aplicación. De los mensajes electrónicos se desea conocer la fecha y hora, remitente, destinatario, asunto y mensaje. Para lo cuál, se pide como mínimo los siguientes requerimientos: 
 ![Captura2](capturas/captura2.JPG)
-# Usuario con rol de user: 
+## Usuario con rol de user: 
 	-d) Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos recibidos, ordenados por los más recientes. 
-	 
+	 ![Captura3](capturas/captura3.JPG)
 	-e) Visualizar el listado de todos los mensajes electrónicos enviados, ordenados por los más recientes. 
-	 
+	 ![Captura4](capturas/captura4.JPG)
 	-f) Enviar mensajes electrónicos a otros usuarios de la aplicación web. 
-	 
+	 ![Captura5](capturas/captura5.JPG)
 	-g) Buscar todos los mensajes electrónicos recibidos. La búsqueda se realizará por el correo del usuario remitente y se deberá aplicar Ajax para la búsqueda. 
-	 
+	 ![Captura6](capturas/captura6.JPG)
 	-h) Buscar todos los mensajes electrónicos enviados. La búsqueda se realizará por el correo del usuario destinatario y se deberá aplicar Ajax para la búsqueda. 
-	 
+	 ![Captura7](capturas/captura7.JPG)
 	-i) Modificar los datos del usuario. 
-	 
+	 ![Captura8](capturas/captura8.JPG)
 	-j) Cambiar la contraseña del usuario. 
-	 
+	 ![Captura9](capturas/captura9.JPG)
 	-k) Agregar un avatar (fotografía) a la cuenta del usuario. 
-	 
+	 ![Captura10](capturas/captura10.JPG)
 
-Usuario con rol de admin: 
-	l) No puede recibir ni enviar mensajes electrónicos. 
-	m) Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos, ordenados por los más recientes. 
-	 
-	n) Eliminar los mensajes electrónicos de los usuarios con rol “user”. 
-	 
-	o) Eliminar, modificar y cambiar contraseña de los usuarios con rol “user”. 
-	 
+## Usuario con rol de admin: 
+	-l) No puede recibir ni enviar mensajes electrónicos. 
+	-m) Visualizar en su pagina principal (index.php) el listado de todos los mensajes electrónicos, ordenados por los más recientes. 
+	 ![Captura11](capturas/captura11.JPG)
+	-n) Eliminar los mensajes electrónicos de los usuarios con rol “user”. 
+	 ![Captura12](capturas/captura12.JPG)
+	-o) Eliminar, modificar y cambiar contraseña de los usuarios con rol “user”. 
+	 ![Captura13](capturas/captura13.JPG)
 
-Por último, se debe aplicar parámetros de seguridad a través del uso de sesiones. Para lo cuál, se debe tener en cuenta: 
-	p) Un usuario “anónimo”, es decir, un usuario que no ha iniciado sesión puede acceder únicamente a los archivos de la carpeta pública. 
-	q) Un usuario con rol de “admin” puede acceder únicamente a los archivos de la carpeta admin → vista → admin y admin → controladores → admin 
-	r) Un usuario con rol de “user” puede acceder únicamente a los archivos de la carpeta admin → vista → user y admin → controladores → user 
+## Por último, se debe aplicar parámetros de seguridad a través del uso de sesiones. Para lo cuál, se debe tener en cuenta: 
+	-p) Un usuario “anónimo”, es decir, un usuario que no ha iniciado sesión puede acceder únicamente a los archivos de la carpeta pública. 
+	-q) Un usuario con rol de “admin” puede acceder únicamente a los archivos de la carpeta admin → vista → admin y admin → controladores → admin 
+	-r) Un usuario con rol de “user” puede acceder únicamente a los archivos de la carpeta admin → vista → user y admin → controladores → user 
 
-Diagrama E-R
-
+## Diagrama E-R
+![Captura14](capturas/captura14.JPG)
  
-Nombre de la BD: hip
+## Nombre de la BD: 
+hip
 
-Sentencias SQL de la estructura de la BD
+## Sentencias SQL de la estructura de la BD
 CREATE TABLE `roles` (
 `rol_codigo` int(11) NOT NULL AUTO_INCREMENT,
 `rol_nombre` varchar(10) NOT NULL,
@@ -88,6 +89,8 @@ PRIMARY KEY (`cor_codigo`),
 FOREIGN KEY (`cor_usu_remite`) REFERENCES usuario(usu_codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-GitHub
-Usuario: damoralesr97
-URL: https://github.com/damoralesr97/AppWebPhpBD
+## GitHub
+## Usuario: 
+damoralesr97
+## URL: 
+https://github.com/damoralesr97/AppWebPhpBD
