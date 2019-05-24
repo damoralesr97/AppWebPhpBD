@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Eliminar Mensaje Electronico</title>
+        <link type="text/css" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
+        <form class="box">
         <?php
 
             //Incluir conexion a la BD
@@ -26,5 +28,6 @@
 
             $conn->close();
         ?>
+        <form>
     </body>
 </html>

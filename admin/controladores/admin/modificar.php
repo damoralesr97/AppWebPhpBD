@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Modificar datos de persona</title>
+        <link type="text/css" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
+        <form class="box">
         <?php
             //Incluir conexion a la base de datos
             include '../../../config/conexionBD.php';
@@ -33,5 +35,6 @@
 
             $conn->close();
         ?>
+        </form>
     </body>
 </html>

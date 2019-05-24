@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Cambiar Contrasena</title>
+        <link type="text/css" rel="stylesheet" href="../../../style.css">
     </head>
     <body>
+        <form class="box">
         <?php
             //Incluir conexion a la BD
             include "../../../config/conexionBD.php";
@@ -32,5 +34,6 @@
             echo "<a href='../../vista/admin/usuarios.php?codigo_admin=".$codigo_admin."'>Regresar</a>";
             $conn->close();
         ?>
+        </form>
     </body>
 </html>
